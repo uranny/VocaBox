@@ -1,5 +1,6 @@
 package com.minhwi.vocabox.domain.word.service;
 
+import com.minhwi.vocabox.domain.word.dto.request.WordOnlyRequestDTO;
 import com.minhwi.vocabox.domain.word.dto.request.WordRequestDTO;
 import com.minhwi.vocabox.domain.word.dto.response.WordResponseDTO;
 import com.minhwi.vocabox.domain.word.entity.Word;
@@ -11,4 +12,5 @@ public interface WordService {
     List<WordResponseDTO> findAll();
     void removeById(Long id);
     void updateById(Long id, Word word);
+    List<WordResponseDTO> findByWord(WordOnlyRequestDTO word);
 }
