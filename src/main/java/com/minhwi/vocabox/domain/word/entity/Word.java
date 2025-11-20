@@ -9,7 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @Table(name = "tb_words")
 public class Word {
     @Id
@@ -24,8 +23,8 @@ public class Word {
 
     public static Word toEntity(WordRequestDTO dto) {
         Word word = new Word();
-        word.setWord(dto.getWord());
-        word.setMeaning(dto.getMeaning());
+        word.setWord(dto.getWord().trim());
+        word.setMeaning(dto.getMeaning().trim());
         return word;
     }
 }

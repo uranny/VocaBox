@@ -1,5 +1,6 @@
 package com.minhwi.vocabox.domain.word.controller;
 
+import com.minhwi.vocabox.domain.word.dto.request.WordOnlyRequestDTO;
 import com.minhwi.vocabox.domain.word.dto.request.WordRequestDTO;
 import com.minhwi.vocabox.domain.word.dto.response.WordResponseDTO;
 import com.minhwi.vocabox.domain.word.entity.Word;
@@ -31,6 +32,14 @@ public class WordController {
         return BaseResponse.of(words, HttpStatus.OK, "단어 목록 조회에 성공하셨습니다.");
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<BaseResponse<List<WordResponseDTO>>> findByWord(
+            @RequestBody WordOnlyRequestDTO word
+    ) {
+        List<WordResponseDTO> words = wordService.findByWord(word);
+        return BaseResponse.of(words, HttpStatus.OK, "단어 목록 조회에 성공하셨습니다.");
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<BaseResponse<Void>> removeById(
             @PathVariable Long id
@@ -39,7 +48,7 @@ public class WordController {
         return BaseResponse.of(HttpStatus.OK, "단어 삭제에 성공하셨습니다.");
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<BaseResponse<Void>> updateById(
             @PathVariable Long id,
             @RequestBody Word word

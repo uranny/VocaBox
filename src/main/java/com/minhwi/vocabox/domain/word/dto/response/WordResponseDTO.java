@@ -13,6 +13,6 @@ public class WordResponseDTO {
     private String meaning;
 
     public static WordResponseDTO toResponseDTO(Word word) {
-        return new WordResponseDTO(word.getId(), word.getWord(), word.getMeaning());
+        return new WordResponseDTO(word.getId(), word.getWord().trim(), word.getMeaning().trim());
     }
 }
