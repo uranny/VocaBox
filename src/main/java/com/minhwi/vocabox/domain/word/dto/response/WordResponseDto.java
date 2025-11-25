@@ -7,12 +7,12 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class WordResponseDTO {
+public class WordResponseDto {
     private Long id;
     private String word;
     private String meaning;
 
-    public static WordResponseDTO toResponseDTO(Word word) {
-        return new WordResponseDTO(word.getId(), word.getWord().trim(), word.getMeaning().trim());
+    public static WordResponseDto toResponseDTO(Word word) {
+        return new WordResponseDto(word.getId(), word.getWord().trim(), word.getMeaning().trim());
     }
 }

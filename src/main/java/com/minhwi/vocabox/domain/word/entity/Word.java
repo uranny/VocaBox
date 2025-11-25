@@ -1,6 +1,7 @@
 package com.minhwi.vocabox.domain.word.entity;
 
-import com.minhwi.vocabox.domain.word.dto.request.WordRequestDTO;
+import com.minhwi.vocabox.domain.user.entity.User;
+import com.minhwi.vocabox.domain.word.dto.request.WordRequestDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,10 +22,15 @@ public class Word {
     @Column(nullable = false)
     private String meaning;
 
-    public static Word toEntity(WordRequestDTO dto) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public static Word toEntity(WordRequestDto dto, User user) {
         Word word = new Word();
         word.setWord(dto.getWord().trim());
         word.setMeaning(dto.getMeaning().trim());
+        word.setUser(user);
         return word;
     }
 }
