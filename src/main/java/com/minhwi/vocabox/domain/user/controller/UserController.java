@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -32,3 +32,4 @@ public class UserController {
         return BaseResponse.of(responseDto, HttpStatus.OK, "로그인에 성공했습니다.");
     }
 }
+

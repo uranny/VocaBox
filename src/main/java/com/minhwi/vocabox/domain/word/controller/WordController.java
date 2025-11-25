@@ -13,7 +13,7 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/words")
+@RequestMapping("/words")
 @RequiredArgsConstructor
 public class WordController {
     private final WordService wordService;
