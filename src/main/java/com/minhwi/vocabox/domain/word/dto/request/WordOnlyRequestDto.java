@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class WordOnlyRequestDTO {
+public class WordOnlyRequestDto {
     private String word;
 }

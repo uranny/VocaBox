@@ -1,5 +1,6 @@
 package com.minhwi.vocabox.domain.word.controller;
 
+import com.minhwi.vocabox.domain.word.dto.request.WordOnlyRequestDto;
 import com.minhwi.vocabox.domain.word.dto.request.WordRequestDto;
 import com.minhwi.vocabox.domain.word.dto.response.WordResponseDto;
 import com.minhwi.vocabox.domain.word.service.WordService;
@@ -31,8 +32,8 @@ public class WordController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<BaseResponse<List<WordResponseDto>>> findByWord(Principal principal, @RequestParam String word) {
-        List<WordResponseDto> words = wordService.findByWord(principal.getName(), word);
+    public ResponseEntity<BaseResponse<List<WordResponseDto>>> findByWord(Principal principal, @RequestBody WordOnlyRequestDto word) {
+        List<WordResponseDto> words = wordService.findByWord(principal.getName(), word.getWord());
         return BaseResponse.of(words, HttpStatus.OK, "단어 목록 조회에 성공하셨습니다.");
     }
 
