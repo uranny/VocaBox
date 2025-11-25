@@ -29,7 +29,7 @@ public class UserController {
     @PostMapping("/signin")
     public ResponseEntity<BaseResponse<UserSignInResponseDto>> signIn(@RequestBody UserSignInRequestDto signInDto) {
         UserSignInResponseDto responseDto = userService.signIn(signInDto);
-        return BaseResponse.of(responseDto, HttpStatus.OK, "로그인에 성공했습니다.");
+        return BaseResponse.of(responseDto, "로그인에 성공했습니다.");
     }
 }
 
