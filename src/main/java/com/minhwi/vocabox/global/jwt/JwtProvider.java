@@ -54,7 +54,7 @@ public class JwtProvider {
         try {
             Jwts.parser().setSigningKey(key).build().parseClaimsJws(token);
             return true;
-        } catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
+        } catch (SecurityException | MalformedJwtException e) {
             log.warn("잘못된 JWT 서명입니다: {}", e.getMessage());
         } catch (ExpiredJwtException e) {
             log.warn("만료된 JWT 토큰입니다: {}", e.getMessage());
